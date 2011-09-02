@@ -2,6 +2,7 @@
 #include "ETHLib/State.angelscript"
 #include "ETHLib/StateManager.angelscript"
 #include "ETHLib/GlobalScale.angelscript"
+#include "ETHLib/plane_math.angelscript"
 #include "Game.angelscript"
 
 void main()

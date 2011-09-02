@@ -26,16 +26,14 @@ class Ball
 	{
 		const vector2 pos = entity.GetPositionXY();
 		const vector2 screenSize = GetScreenSize();
-		if (pos.x > screenSize.x || pos.x < 0)
-		{	
-			if (pos.x > screenSize.x)
-			{
-				player2.mahPoint();
-			}
-			else
-			{
-				player1.mahPoint();
-			}
+		if (pos.x > screenSize.x)
+		{
+			player2.mahPoint();
+			reset();
+		}
+		if (pos.x < 0)
+		{
+			player1.mahPoint();
 			reset();
 		}		
 	}
@@ -62,7 +60,7 @@ void ETHCallback_ball(ETHEntity@ entity)
 	entity.GetObject("player1", @p1);
 	entity.GetObject("player2", @p2);
 	
-	if (scaledCollide(p1.getCollisionBox(), entity) || scaledCollide(p2.getCollisionBox(), entity))
+	if (getCollisionPlayerBall(@p1, entity) || getCollisionPlayerBall(@p2, entity))
 	{
 		direction.x *= -1;
 	}
@@ -70,4 +68,13 @@ void ETHCallback_ball(ETHEntity@ entity)
 	entity.AddToAngle(movementRatio);
 	entity.AddToPositionXY(direction * movementRatio);
 	entity.SetVector2("direction", direction);
+}
+
+bool getCollisionPlayerBall(Player@ p, ETHEntity@ ball)
+{
+	collisionBox cb = p.getCollisionBox();
+	Shape playerShape(toVector2(cb.pos), toVector2(cb.size), 0.0f, true);
+	vector2 hitNormal;
+	float penetration = 0;
+	return playerShape.overlapSphere(ball.GetPositionXY(), ball.GetFloat("ballRadius"), penetration, hitNormal);
 }
