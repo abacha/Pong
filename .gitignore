@@ -1,0 +1,77 @@
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated GUI files
+R.java
+
+data.properties
+data.cpp
+
+.settings
+
+# SVC
+.svn
+*.svn
+
+# C/C++ binaries
+*.lib
+*.obj
+*.idb
+*.pdb
+*.lib
+*.dll
+*.o
+*.o.d
+*.org
+# *.so
+*.a
+gdb.setup
+gdbserver
+
+# MSVC
+*.ilk
+*.manifest
+*.user
+*.ncb
+*.suo
+*.exp
+*.dep
+
+*.res
+
+Debug/
+
+*bin/
+
+gs2d/vendors/
+
+# Ethanon files
+ETHLib/
+_assets.readme.txt
+_assets/
+obj/
+src/Audio/
+src/Input/
+src/Platorm/
+src/Video/
+*.log.txt
+*.log
+*.bin
+*.bin.txt
+AS_DEBUG/
+
+# Bee
+
+lastTimePlayed.enml
+score.enml
+app.enml
+lastTimePlayed.enml
+options.enml
+loadTime.txt

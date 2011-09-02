@@ -1,0 +1,2 @@
+game.bin is the current pre-compiled byte code of your project. 
+Remove main.angelscript from your project's path in order to load the pre-compiled byte code instead of compiling main.angelscript.
