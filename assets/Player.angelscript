@@ -52,6 +52,7 @@
 		const vector2 pos = entity.GetPositionXY();
 		vector2 pos0 = input.GetTouchPos(0);
 		vector2 pos1 = input.GetTouchPos(1);
+		
 		if (pos0.y < 0)
 		{
 			pos0.y = 0;
@@ -102,5 +103,10 @@
 	void mahPoint()
 	{
 		score++;
+	}
+	
+	int getID()
+	{
+		return entity.GetID();
 	}
 }
