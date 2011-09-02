@@ -18,7 +18,8 @@ class Ball
 		@player1 = @_player1;
 		@player2 = @_player2;
 		entity.SetObject("player1", @player1);
-		entity.SetObject("player2", @player2);		
+		entity.SetObject("player2", @player2);
+		entity.SetFloat("ballRadius", entity.GetSize().x / 2);
 	}
 	
 	void update()
@@ -52,7 +53,7 @@ void ETHCallback_ball(ETHEntity@ entity)
 	const float movementRatio = entity.GetFloat("movementRatio");
 	vector2 direction = entity.GetVector2("direction");
 	
-	if (pos.y > screenSize.y || pos.y < 0)
+	if ((pos.y + entity.GetFloat("ballRadius")) > screenSize.y || (pos.y - entity.GetFloat("ballRadius")) < 0)
 	{
 		direction.y *= -1;
 	}
